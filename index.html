@@ -10,7 +10,7 @@
   <meta property="og:title" content="Muhammad Nabeel Khan — Guest Posting & Blogger Outreach Specialist">
   <meta property="og:description" content="Strategic guest posting and blogger outreach focused on relevance, quality, and long-term SEO value.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.nabeelkhan.com">
+  <meta property="og:url" content="https://guestanchor.com/">
   <meta property="og:image" content="assets/og-image.jpg">
   
   <style>
@@ -178,6 +178,34 @@
       border-radius: 4px;
       transition: var(--transition);
     }
+    .theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.theme-toggle svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--white);
+  stroke: none;
+}
+
+.theme-toggle:hover svg {
+  fill: var(--brand-green);
+}
+
+[data-theme="dark"] .theme-toggle svg {
+  fill: var(--brand-green);
+}
+.theme-toggle:hover svg {
+  stroke: var(--brand-green);
+}
 
     /* ===== BUTTONS ===== */
     .btn {
@@ -235,13 +263,15 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: center;
+      align-items: start;
     }
 
     .hero-content h1 {
       color: var(--white);
-      margin-bottom: 20px;
-      font-size: 3.4rem;
+      margin-bottom: 08px;
+      font-size: 3.6rem;
+      line-height: 1.2;
+      margin-top: 6px;
     }
 
     .hero-sub {
@@ -265,9 +295,13 @@
 
     .hero-visual {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+      margin-top: 40px;
     }
+    .diagram-scale-wrapper {
+    transform: translateX(188px);
+}
 
     .link-diagram {
       background: var(--secondary-blue);
@@ -1244,7 +1278,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--brand-green);
+      background: var(--white);
       color: var(--dark-blue);
       border: none;
       font-size: 1.6rem;
@@ -1273,11 +1307,77 @@
       width: 24px;
       height: 24px;
       fill: none;
-      stroke: var(--dark-blue);
+      stroke: var(--bright-blue);
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    .whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--white);
+}
+    .scroll-to-bottom {
+  position: fixed;
+  top: 100px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--dark-blue);
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-bottom.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scroll-to-bottom:hover {
+  transform: translateY(4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-bottom svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--bright-blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
@@ -1469,6 +1569,203 @@
       .logo img { height: 32px; }
       .footer-logo img { height: 32px; }
     }
+    :root{
+    --bg: #012674;
+    --bg2: #0B3B9E;
+    --text: #F4F6FB;
+
+    --c-publisher: #D670FF;
+    --c-content:   #8FFF1A;
+    --c-editorial: #FF4F9E;
+    --c-website:   #FFD700;
+    --c-authority: #00FFFF;
+  }
+
+  .stage{ position:relative; width: 640px; max-width: 100%; height: 480px; }
+
+  svg.lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+
+  .path{ fill:none; stroke-width: 1.4; opacity: .28; }
+
+  .node-wrap{
+    position:absolute;
+    opacity: 0;
+    transform: translateY(10px) scale(.95);
+  }
+  .node-wrap.in{ animation: rise .55s cubic-bezier(.2,.7,.2,1) forwards; }
+
+  .node{
+    position: relative;
+    z-index: 1;
+    padding: 15px 21px;
+    border-radius: 12px;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.02) 55%),
+      linear-gradient(150deg, #1E4FD9, #0A1E5C);
+    border: 1px solid rgba(255,255,255,.14);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 14.5px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    box-shadow:
+      0 14px 34px -14px rgba(0,0,0,.6),
+      inset 0 1px 0 rgba(255,255,255,.08);
+    transition: transform .25s ease, border-color .25s ease;
+  }
+
+  .node::before{
+    content:'';
+    position:absolute;
+    left: 21px; top: -1px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--dot);
+    box-shadow: 0 0 8px 1px var(--dot);
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .node-wrap:hover .node{
+    transform: translateY(-3px);
+    border-color: var(--dot);
+  }
+
+  .edge{
+    position:absolute;
+    background: var(--dot);
+    opacity: 0;
+    border-radius: 2px;
+    filter: drop-shadow(0 0 9px var(--dot)) drop-shadow(0 0 4px var(--dot));
+    pointer-events: none;
+  }
+  .edge-top   { top: -1px; left: 10px; right: 10px; height: 1px; }
+  .edge-right { top: 10px; right: -1px; bottom: 10px; width: 1px; }
+  .edge-bottom{ bottom: -1px; left: 10px; right: 10px; height: 1px; }
+  .edge-left  { top: 10px; left: -1px; bottom: 10px; width: 1px; }
+
+  .node.pulse .edge-top{    animation: edge-flash 1.4s ease-in-out; animation-delay: 0s; }
+  .node.pulse .edge-right{  animation: edge-flash 1.4s ease-in-out; animation-delay: .12s; }
+  .node.pulse .edge-bottom{ animation: edge-flash 1.4s ease-in-out; animation-delay: .24s; }
+  .node.pulse .edge-left{   animation: edge-flash 1.4s ease-in-out; animation-delay: .36s; }
+
+  @keyframes edge-flash{
+    0%{ opacity: 0; }
+    22%{ opacity: 1; }
+    100%{ opacity: 0; }
+  }
+
+  .node.pulse::before{
+    animation: bulb-flash 1.4s ease-in-out;
+  }
+  @keyframes bulb-flash{
+    0%{ box-shadow: 0 0 8px 1px var(--dot); }
+    22%{ box-shadow: 0 0 28px 10px var(--dot), 0 0 12px 3px var(--dot); }
+    100%{ box-shadow: 0 0 8px 1px var(--dot); }
+  }
+
+  .node.pulse{
+    animation: text-flash 1.4s ease-in-out;
+  }
+  @keyframes text-flash{
+    0%{ color: var(--text); }
+    22%{ color: var(--dot); }
+    100%{ color: var(--text); }
+  }
+
+  .node:hover .edge,
+  .node.touch-active .edge{
+    opacity: 1;
+    animation: none;
+  }
+  .node:hover::before,
+  .node.touch-active::before{
+    box-shadow: 0 0 14px 4px var(--dot);
+    animation: none;
+  }
+  .node:hover,
+  .node.touch-active{
+    color: var(--dot);
+  }
+
+  @keyframes rise{ to{ opacity:1; transform: translateY(0) scale(1); } }
+
+  .n-publisher{ top: -8px;  left: 2px;   --dot: var(--c-publisher); }
+  .n-content  { top: 90px;  left: 120px; --dot: var(--c-content);   }
+  .n-editorial{ top: 178px; left: 342px; --dot: var(--c-editorial); }
+  .n-website  { top: 332px; left: 342px; --dot: var(--c-website);   }
+  .n-authority{ top: 382px; left: 4px;   --dot: var(--c-authority); }
+  [data-theme="dark"] .services-preview,
+[data-theme="dark"] .how-it-works,
+[data-theme="dark"] .faq-section,
+[data-theme="dark"] .about-section,
+[data-theme="dark"] .process-steps,
+[data-theme="dark"] .contact-section {
+  background: var(--dark-blue);
+}
+
+[data-theme="dark"] .trust-strip,
+[data-theme="dark"] .verification,
+[data-theme="dark"] .featured-cta,
+[data-theme="dark"] .services-full,
+[data-theme="dark"] .publisher-filter {
+  background: var(--secondary-blue);
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .step-card,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .service-card-full,
+[data-theme="dark"] .process-card,
+[data-theme="dark"] .sidebar-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .contact-form-container,
+[data-theme="dark"] .publisher-results {
+  background: var(--secondary-blue);
+  border-color: var(--bright-blue);
+}
+
+[data-theme="dark"] .service-card h3,
+[data-theme="dark"] .step-card h4,
+[data-theme="dark"] .about-text h2,
+[data-theme="dark"] .about-card h3,
+[data-theme="dark"] .service-card-full h2,
+[data-theme="dark"] .process-card h3,
+[data-theme="dark"] .sidebar-card h4,
+[data-theme="dark"] .info-card h3,
+[data-theme="dark"] .info-card h4,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .featured-cta h2,
+[data-theme="dark"] .accordion-btn,
+[data-theme="dark"] .filter-group label,
+[data-theme="dark"] .form-group label,
+[data-theme="dark"] .trust-items {
+  color: var(--white);
+}
+
+[data-theme="dark"] .service-card p,
+[data-theme="dark"] .step-card p,
+[data-theme="dark"] .about-text p,
+[data-theme="dark"] .about-card p,
+[data-theme="dark"] .service-card-full p,
+[data-theme="dark"] .service-card-full ul li,
+[data-theme="dark"] .process-card p,
+[data-theme="dark"] .sidebar-card p,
+[data-theme="dark"] .info-card p,
+[data-theme="dark"] .accordion-content p,
+[data-theme="dark"] .placeholder-text {
+  color: var(--light-offwhite);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .filter-group input,
+[data-theme="dark"] .filter-group select {
+  background: var(--dark-blue);
+  color: var(--white);
+  border-color: var(--bright-blue);
+}
   </style>
 </head>
 <body>
@@ -1487,6 +1784,11 @@
           <li><a href="#publishers-section">Publishers</a></li>
           <li><a href="#process-section">Process</a></li>
           <li><a href="#contact-section">Contact</a></li>
+          <li>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</li>
         </ul>
       </nav>
       <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
@@ -1508,12 +1810,44 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="link-diagram">
-            <div class="node node-site"><span>Your Site</span></div>
-            <div class="node node-backlink"><span>Backlink</span></div>
-            <div class="node node-publisher"><span>Publisher</span></div>
-            <div class="label-relevance">Relevance → Authority</div>
-          </div>
+          <div class="diagram-scale-wrapper">
+          <div class="stage" id="stage">
+  <svg class="lines" id="lines" viewBox="0 0 640 480" preserveAspectRatio="none">
+    <circle id="traveling-dot" r="1.1"></circle>
+  </svg>
+
+  <div class="node-wrap n-publisher" id="publisher-wrap" style="animation-delay:.05s">
+    <div class="node" id="publisher">Publisher
+      <span class="edge edge-top"></span><span class="edge edge-right"></span>
+      <span class="edge edge-bottom"></span><span class="edge edge-left"></span>
+    </div>
+  </div>
+  <div class="node-wrap n-content" id="content-wrap" style="animation-delay:.2s">
+    <div class="node" id="content">Content
+      <span class="edge edge-top"></span><span class="edge edge-right"></span>
+      <span class="edge edge-bottom"></span><span class="edge edge-left"></span>
+    </div>
+  </div>
+  <div class="node-wrap n-editorial" id="editorial-wrap" style="animation-delay:.35s">
+    <div class="node" id="editorial">Editorial Link
+      <span class="edge edge-top"></span><span class="edge edge-right"></span>
+      <span class="edge edge-bottom"></span><span class="edge edge-left"></span>
+    </div>
+  </div>
+  <div class="node-wrap n-website" id="website-wrap" style="animation-delay:.5s">
+    <div class="node" id="website">Your Website
+      <span class="edge edge-top"></span><span class="edge edge-right"></span>
+      <span class="edge edge-bottom"></span><span class="edge edge-left"></span>
+    </div>
+  </div>
+  <div class="node-wrap n-authority" id="authority-wrap" style="animation-delay:.65s">
+    <div class="node" id="authority">Authority
+      <span class="edge edge-top"></span><span class="edge edge-right"></span>
+      <span class="edge edge-bottom"></span><span class="edge edge-left"></span>
+    </div>
+  </div>
+  </div>
+</div>
         </div>
       </div>
     </section>
@@ -2017,7 +2351,7 @@
                 <span class="contact-icon">
                   <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
                 </span>
-                <a href="mailto:nabeelkhanbosthelp@gmail.com">nabeelkhanbosthelp@gmail.com</a>
+                <a href="mailto:nabeelkhan@guestanchor.com">nabeelkhan@guestanchor.com</a>
               </p>
               <p>
                 <span class="contact-icon">
@@ -2054,7 +2388,7 @@
       </div>
       <p>© 2026 Muhammad Nabeel Khan — Guest Posting &amp; Blogger Outreach Specialist</p>
       <div class="footer-links">
-        <a href="mailto:nabeelkhanbosthelp@gmail.com">Email</a>
+        <a href="mailto:nabeelkhan@guestanchor.com">Email</a>
         <a href="https://wa.me/923017998607" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://www.linkedin.com/in/nabeel-khan-guest-posting" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -2065,14 +2399,174 @@
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
+  <button id="scrollToBottom" class="scroll-to-bottom" aria-label="Scroll to bottom">
+  <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<a href="https://wa.me/923017998607" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.503 3.629 1.456 5.183L2.05 22l4.937-1.312A9.94 9.94 0 0012 22c5.522 0 10-4.478 10-10S17.522 2 12.001 2zm0 18.166c-1.7 0-3.36-.457-4.804-1.32l-.344-.204-3.577.951.955-3.486-.224-.358A8.135 8.135 0 013.834 12c0-4.51 3.66-8.166 8.167-8.166S20.167 7.49 20.167 12 16.508 20.166 12.001 20.166z"/></svg>
+</a>
 
-  <script>
+  
+    <script>
+  const SPEED_PX_PER_SEC = 20;
+  const PAUSE_MS = 500;
+
+  const connections = [
+    ['publisher', 'content',   'var(--c-publisher)'],
+    ['content',   'editorial', 'var(--c-content)'],
+    ['editorial', 'website',   'var(--c-editorial)'],
+    ['website',   'authority', 'var(--c-website)'],
+  ];
+
+  const segmentPaths = [];
+
+  function anchorPoint(el, stageRect){
+    const r = el.getBoundingClientRect();
+    return { x: r.left - stageRect.left + 25, y: r.top - stageRect.top };
+  }
+
+  function draw(){
+    const svg = document.getElementById('lines');
+    const stage = document.getElementById('stage');
+    const stageRect = stage.getBoundingClientRect();
+    svg.setAttribute('viewBox', `0 0 ${stageRect.width} ${stageRect.height}`);
+
+    const dot = document.getElementById('traveling-dot');
+    Array.from(svg.querySelectorAll('path')).forEach(p => p.remove());
+    segmentPaths.length = 0;
+
+    connections.forEach(([fromId, toId, color]) => {
+      const fromEl = document.getElementById(fromId);
+      const toEl = document.getElementById(toId);
+
+      const p1 = anchorPoint(fromEl, stageRect);
+      const p2 = anchorPoint(toEl, stageRect);
+
+      const d = `M${p1.x},${p1.y} L${p2.x},${p2.y}`;
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'path');
+      path.setAttribute('stroke', color);
+      svg.insertBefore(path, dot);
+
+      segmentPaths.push({ pathEl: path, color, toId });
+    });
+  }
+
+  function triggerPulse(id){
+    const el = document.getElementById(id);
+    el.classList.remove('pulse');
+    void el.offsetWidth;
+    el.classList.add('pulse');
+  }
+
+  let segmentIndex = 0;
+  let segmentStart = 0;
+  let paused = false;
+  let publisherPulsedThisLap = false;
+
+  function easeInOutSine(x){
+    return -(Math.cos(Math.PI * x) - 1) / 2;
+  }
+
+  function animate(now){
+    const seg = segmentPaths[segmentIndex];
+    if (!seg){ requestAnimationFrame(animate); return; }
+
+    if (segmentIndex === 0 && !publisherPulsedThisLap){
+      triggerPulse('publisher');
+      publisherPulsedThisLap = true;
+    }
+
+    const len = seg.pathEl.getTotalLength();
+    const segmentMs = (len / SPEED_PX_PER_SEC) * 1000;
+    if (!segmentStart) segmentStart = now;
+    if (paused){ requestAnimationFrame(animate); return; }
+
+    const elapsed = now - segmentStart;
+    const linearT = Math.min(elapsed / segmentMs, 1);
+    const t = easeInOutSine(linearT);
+    const pt = seg.pathEl.getPointAtLength(t * len);
+
+    const dot = document.getElementById('traveling-dot');
+    dot.setAttribute('cx', pt.x);
+    dot.setAttribute('cy', pt.y);
+    dot.setAttribute('fill', seg.color);
+    dot.style.filter = `drop-shadow(0 0 3px ${seg.color})`;
+
+    if (linearT >= 1){
+      triggerPulse(seg.toId);
+      segmentIndex++;
+      segmentStart = now;
+
+      if (segmentIndex >= segmentPaths.length){
+        paused = true;
+        setTimeout(() => {
+          segmentIndex = 0;
+          segmentStart = 0;
+          paused = false;
+          publisherPulsedThisLap = false;
+        }, PAUSE_MS);
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    draw();
+    const wraps = document.querySelectorAll('.node-wrap');
+    wraps.forEach(el => el.classList.add('in'));
+
+    let finishedCount = 0;
+    wraps.forEach(el => {
+      el.addEventListener('animationend', () => {
+        finishedCount++;
+        if (finishedCount === wraps.length) draw();
+      }, { once: true });
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(draw);
+    }
+
+    requestAnimationFrame(animate);
+
+    document.querySelectorAll('.node').forEach(node => {
+      node.addEventListener('touchstart', () => node.classList.add('touch-active'), { passive: true });
+      node.addEventListener('touchend', () => node.classList.remove('touch-active'));
+      node.addEventListener('touchcancel', () => node.classList.remove('touch-active'));
+    });
+  });
+  window.addEventListener('resize', draw);
+</script>
+<script>
     // ============================================================
     // COMPLETE JAVASCRIPT — All functionality preserved
     // ============================================================
 
     document.addEventListener('DOMContentLoaded', function() {
+      // THEME TOGGLE (DARK MODE)
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
 
+if (savedTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', function() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+}
       // 1. MOBILE NAVIGATION
       const hamburger = document.getElementById('hamburgerBtn');
       const mainNav = document.getElementById('mainNav');
@@ -2175,7 +2669,25 @@
           });
         });
       }
+       const scrollToBottomBtn = document.getElementById('scrollToBottom');
 
+if (scrollToBottomBtn) {
+  window.addEventListener('scroll', function() {
+    const scrolledToBottom = (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 200;
+    if (scrolledToBottom) {
+      scrollToBottomBtn.classList.add('hidden');
+    } else {
+      scrollToBottomBtn.classList.remove('hidden');
+    }
+  });
+
+  scrollToBottomBtn.addEventListener('click', function() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  });
+}
       // 6. SCROLL REVEAL ANIMATIONS
       const revealElements = document.querySelectorAll(
         '.service-card, .step-card, .work-card, .process-card, .rel-item, .about-card, .service-card-full'
@@ -2310,14 +2822,46 @@
             return;
           }
 
-          formStatus.className = 'form-status success';
-          formStatus.style.display = 'block';
-          formStatus.textContent = '✓ Message sent! (This is a frontend demo. Real submissions require backend integration.)';
+          const payload = {
+  name: name.value.trim(),
+  email: email.value.trim(),
+  company: document.getElementById('company').value.trim(),
+  service: document.getElementById('service').value,
+  targetUrl: document.getElementById('targetUrl').value.trim(),
+  country: document.getElementById('country').value,
+  niche: document.getElementById('niche').value.trim(),
+  linkCount: document.getElementById('linkCount').value,
+  message: document.getElementById('message').value.trim()
+};
 
-          setTimeout(function() {
-            formStatus.style.display = 'none';
-            formStatus.className = 'form-status';
-          }, 5000);
+fetch('https://formspree.io/f/xwlejzgz', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(payload)
+}).then(function(response) {
+  if (response.ok) {
+    formStatus.className = 'form-status success';
+    formStatus.style.display = 'block';
+    formStatus.textContent = '✓ Message sent! I will get back to you within 24 hours.';
+    contactForm.reset();
+  } else {
+    formStatus.className = 'form-status error';
+    formStatus.style.display = 'block';
+    formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
+  }
+}).catch(function() {
+  formStatus.className = 'form-status error';
+  formStatus.style.display = 'block';
+  formStatus.textContent = 'Something went wrong. Please check your internet connection and try again.';
+});
+
+setTimeout(function() {
+  formStatus.style.display = 'none';
+  formStatus.className = 'form-status';
+}, 5000);
         });
       }
 
