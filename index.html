@@ -1775,6 +1775,8 @@
   border-color: var(--bright-blue);
 }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/css/countrySelect.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
   <!-- Header / Navigation -->
@@ -2325,14 +2327,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="country">Target Country</label>
-                  <select id="country">
-                    <option value="">Select country</option>
-                    <option value="us">United States</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="ca">Canada</option>
-                    <option value="au">Australia</option>
-                    <option value="other">Other</option>
-                  </select>
+                 <input type="text" id="country" placeholder="Select Country">
                 </div>
                 <div class="form-group">
                   <label for="niche">Niche</label>
@@ -2349,7 +2344,7 @@
               </div>
               <div id="formStatus" class="form-status"></div>
               <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-              <p class="form-note">* Required fields. This frontend form requires backend/email integration for real submissions.</p>
+              <p class="form-note">* Required fields. We'll get back to you within 24 hours.</p>
             </form>
           </div>
           <div class="contact-info">
@@ -2913,5 +2908,15 @@ setTimeout(function() {
       console.log('✓ All scripts loaded successfully.');
     });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/js/countrySelect.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#country").countrySelect({
+      preferredCountries: [],
+      excludeCountries: ['af']
+    });
+    $("#country").val('');
+  });
+</script>
 </body>
 </html>
