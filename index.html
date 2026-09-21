@@ -192,16 +192,24 @@
 .theme-toggle svg {
   width: 26px;
   height: 26px;
-  fill: var(--white);
+  fill: #FFD700;
   stroke: none;
 }
 
 .theme-toggle:hover svg {
-  fill: var(--brand-green);
+  fill: #FFD700;
 }
 
 [data-theme="dark"] .theme-toggle svg {
-  fill: var(--brand-green);
+  fill: #000000;
+  transform: translateY(-0.100px);
+  transform: translateX(0.1px);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: var(--light-offwhite);
+  border-radius: 50%;
+  padding: 0px;
 }
 .theme-toggle:hover svg {
   stroke: var(--brand-green);
@@ -2232,7 +2240,7 @@
           <button id="resetFilters" class="btn btn-outline">Reset</button>
         </div>
         <div id="publisherResults" class="publisher-results">
-          <p class="placeholder-text">Use the filters above to search for publishers. No fake data is displayed.</p>
+          <p class="placeholder-text">For current publisher availability and pricing, please reach out via WhatsApp or email — we'll get back to you within 24 hours.</p>
         </div>
       </div>
     </section>
@@ -2372,7 +2380,7 @@
             </div>
             <div class="info-card">
               <h4>Prefer a Quick Call?</h4>
-              <p>Schedule a brief consultation to discuss your link building needs.</p>
+              <p style="display: block;">Schedule a brief consultation to discuss your link building needs. <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nabeelkhan@guestanchor.com&su=Call%20Request" target="_blank" rel="noopener" style="color: #C0392B;">Email us to schedule</a>.</p>
             </div>
           </div>
         </div>
@@ -2755,7 +2763,7 @@ if (scrollToBottomBtn) {
           `;
         } else {
           publisherResults.innerHTML = `
-            <p class="placeholder-text">Use the filters above to search for publishers. No fake data is displayed.</p>
+            <p class="placeholder-text">For current publisher availability and pricing, please reach out via WhatsApp or email — we'll get back to you within 24 hours.</p>
           `;
         }
       }
@@ -2775,7 +2783,7 @@ if (scrollToBottomBtn) {
           });
           if (publisherResults) {
             publisherResults.innerHTML = `
-              <p class="placeholder-text">Use the filters above to search for publishers. No fake data is displayed.</p>
+              <p class="placeholder-text">For current publisher availability and pricing, please reach out via WhatsApp or email — we'll get back to you within 24 hours.</p>
             `;
           }
         });
