@@ -1777,6 +1777,7 @@
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/css/countrySelect.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdPypktAAAAABgTnjd7jnDfmx4Wx39AxPNNiURT"></script>
 </head>
 <body>
   <!-- Header / Navigation -->
@@ -2824,41 +2825,45 @@ if (scrollToBottomBtn) {
             formStatus.textContent = 'Please fill in all required fields correctly.';
             return;
           }
+grecaptcha.ready(function() {
+  grecaptcha.execute('6LdPypktAAAAABgTnjd7jnDfmx4Wx39AxPNNiURT', {action: 'submit'}).then(function(token) {
+    const payload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      company: document.getElementById('company').value.trim(),
+      service: document.getElementById('service').value,
+      targetUrl: document.getElementById('targetUrl').value.trim(),
+      country: document.getElementById('country').value,
+      niche: document.getElementById('niche').value.trim(),
+      linkCount: document.getElementById('linkCount').value,
+      message: document.getElementById('message').value.trim(),
+      'g-recaptcha-response': token
+    };
 
-          const payload = {
-  name: name.value.trim(),
-  email: email.value.trim(),
-  company: document.getElementById('company').value.trim(),
-  service: document.getElementById('service').value,
-  targetUrl: document.getElementById('targetUrl').value.trim(),
-  country: document.getElementById('country').value,
-  niche: document.getElementById('niche').value.trim(),
-  linkCount: document.getElementById('linkCount').value,
-  message: document.getElementById('message').value.trim()
-};
-
-fetch('https://formspree.io/f/xwlejzgz', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(payload)
-}).then(function(response) {
-  if (response.ok) {
-    formStatus.className = 'form-status success';
-    formStatus.style.display = 'block';
-    formStatus.textContent = '✓ Message sent! I will get back to you within 24 hours.';
-    contactForm.reset();
-  } else {
-    formStatus.className = 'form-status error';
-    formStatus.style.display = 'block';
-    formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
-  }
-}).catch(function() {
-  formStatus.className = 'form-status error';
-  formStatus.style.display = 'block';
-  formStatus.textContent = 'Something went wrong. Please check your internet connection and try again.';
+    fetch('https://formspree.io/f/xwlejzgz', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(function(response) {
+      if (response.ok) {
+        formStatus.className = 'form-status success';
+        formStatus.style.display = 'block';
+        formStatus.textContent = '✓ Message sent! I will get back to you within 24 hours.';
+        contactForm.reset();
+      } else {
+        formStatus.className = 'form-status error';
+        formStatus.style.display = 'block';
+        formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
+      }
+    }).catch(function() {
+      formStatus.className = 'form-status error';
+      formStatus.style.display = 'block';
+      formStatus.textContent = 'Something went wrong. Please check your internet connection and try again.';
+    });
+  });
 });
 
 setTimeout(function() {
