@@ -2916,6 +2916,11 @@ setTimeout(function() {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.1.1/js/countrySelect.min.js"></script>
 <script>
   $(document).ready(function() {
+      var countryData = $.fn.countrySelect.getCountryData();
+    countryData.forEach(function(c) {
+      c.name = c.name.replace(/\s*\([^()]*\)\s*$/, '');
+    });
+    $.fn.countrySelect.setCountryData(countryData);
     $("#country").countrySelect({
       preferredCountries: [],
       excludeCountries: ['af']
