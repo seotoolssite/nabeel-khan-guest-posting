@@ -212,6 +212,9 @@
   border-radius: 50%;
   padding: 0px;
 }
+    .theme-toggle-mobile {
+      display: none;
+    }
 .theme-toggle:hover svg {
   stroke: var(--brand-green);
 }
@@ -1406,6 +1409,23 @@
       .hamburger {
         display: flex;
       }
+            .hamburger {
+        order: -2;
+      }
+
+      .logo {
+        order: -1;
+      }
+
+      .nav-container {
+        justify-content: flex-start;
+        gap: 22px;
+      }
+
+      .theme-toggle-mobile {
+        display: flex;
+        margin-left: auto;
+      }
 
       .main-nav {
         position: absolute;
@@ -1788,6 +1808,9 @@
         <!-- Logo image - place your logo file here -->
         <img src="assets/images/nabeel-khan-logo.png" alt="Muhammad Nabeel Khan - Guest Posting & Blogger Outreach" />
       </div>
+            <button id="themeToggleMobile" class="theme-toggle theme-toggle-mobile" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
           <li><a href="#home" class="active">Home</a></li>
@@ -2554,23 +2577,29 @@
     document.addEventListener('DOMContentLoaded', function() {
       // THEME TOGGLE (DARK MODE)
 const themeToggle = document.getElementById('themeToggle');
+const themeToggleMobile = document.getElementById('themeToggleMobile');
 const savedTheme = localStorage.getItem('theme');
 
 if (savedTheme === 'dark') {
   document.documentElement.setAttribute('data-theme', 'dark');
 }
 
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
 if (themeToggle) {
-  themeToggle.addEventListener('click', function() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    }
-  });
+  themeToggle.addEventListener('click', toggleTheme);
+}
+if (themeToggleMobile) {
+  themeToggleMobile.addEventListener('click', toggleTheme);
 }
       // 1. MOBILE NAVIGATION
       const hamburger = document.getElementById('hamburgerBtn');
