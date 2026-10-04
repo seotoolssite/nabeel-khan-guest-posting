@@ -1488,9 +1488,10 @@
         position: relative;
       }
 
-      .diagram-scale-wrapper .stage {
+            .diagram-scale-wrapper .stage {
         transform: scale(0.5);
         transform-origin: top left;
+        top: 16px;
       }
 
       .link-diagram {
@@ -1597,8 +1598,9 @@
         height: 204px;
       }
 
-      .diagram-scale-wrapper .stage {
+            .diagram-scale-wrapper .stage {
         transform: scale(0.425);
+        top: 16px;
       }
 
       .btn {
@@ -2473,9 +2475,10 @@
 
   const segmentPaths = [];
 
-  function anchorPoint(el, stageRect){
+    function anchorPoint(el, stageRect){
     const r = el.getBoundingClientRect();
-    return { x: r.left - stageRect.left + 25, y: r.top - stageRect.top };
+    const scaleFactor = stageRect.width / 640;
+    return { x: r.left - stageRect.left + (25 * scaleFactor), y: r.top - stageRect.top };
   }
 
   function draw(){
